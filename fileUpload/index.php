@@ -20,14 +20,23 @@
 
   <div class="container mt-5">
     <form action="index.php" method="post" enctype="multipart/form-data" class="mb-3">
-      <h3 class="text-center mb-5">Upload File in PHP</h3>
+      
+    
+    <h3 class="text-center mb-5">Upload File in PHP</h3>
 
       <div class="user-image mb-3 text-center">
         <div style="width: 100px; height: 100px; overflow: hidden; background: #cccccc; margin: 0 auto">
           <img src="" class="figure-img img-fluid rounded" id="imgPlaceholder" alt="">
         </div>
       </div>
-
+      <div class="mb-3">
+        <label>Product Title</label>
+        <input type="text"  name="title" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label>Price</label>
+        <input type="number"  name="price" class="form-control">
+      </div>
       <div class="custom-file">
         <input type="file" name="fileUpload" class="custom-file-input" id="chooseFile">
         <label class="custom-file-label" for="chooseFile">Select file</label>
@@ -45,25 +54,6 @@
     </div>
     <?php }?>
   </div>
-  <?php
-
-include "database.php"; // Using database connection file here
-
-$records = mysqli_query($conn,"select * from user"); // fetch data from database
-
-while($data = mysqli_fetch_array($records))
-{
-?>
-  <tr>
-    <!-- <td><?php echo $data['id']; ?></td> -->
-    <td><img src="<?php echo $data['file_path']; ?>" width="100" height="100"></td>
-  </tr>	
-<?php
-}
-?>
-
-</table>
-
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
